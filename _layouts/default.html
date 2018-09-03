@@ -11,25 +11,22 @@
     {% endif %}
   </title>
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,600">
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href={{ "/css/main.css" | prepend: site.baseurl }}>
 </head>
 
 <body>
   <div class="container">
     <header class="masthead">
       <h1 class="masthead-title">
-        <a href="/">Blog's <span>Home</span></a>
+        <a href="{{ site.baseurl }}/">{{ site.title }}</a>
       </h1>
 
       <nav class="masthead-nav">
         {% for page in site.pages %}
-          <a href=" {{ page.url }} "> {{ page.title }} </a> 
+          <a href=" {{ page.url | prepend: site.baseurl }} "> {{ page.title }} </a> 
         {% endfor %}
       </nav>
-
     </header>
-
-    
 
     {{ content }}
 
